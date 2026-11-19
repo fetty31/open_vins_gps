@@ -1,0 +1,29 @@
+%YAML:1.0
+
+cam0:
+  T_imu_cam: #rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
+    - [-1.57980063e-03,  9.97871976e-03,  9.99948963e-01,  2.54314122e-02]
+    - [-9.99995005e-01,  2.72180240e-03, -1.60703486e-03,  2.18462986e-02]
+    - [-2.73769963e-03, -9.99946507e-01,  9.97437001e-03, -4.64507432e-05]
+    - [0.0, 0.0, 0.0, 1.0]
+  cam_overlaps: [1]
+  camera_model: pinhole
+  distortion_coeffs: [-0.033552, 0.001859, 0.000599, -0.000901]
+  distortion_model: radtan
+  intrinsics: [269.516269,269.734233,336.395110,188.435176] #fu, fv, cu, cv
+  resolution: [672, 376]
+  rostopic: /zed/zed_node/left_raw_gray/image_raw_gray
+
+cam1:
+  T_imu_cam: #rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
+    - [-1.87620664e-03,  8.79353098e-03,  9.99959576e-01,  2.52916452e-02]
+    - [-9.99997978e-01,  7.07368685e-04, -1.88249921e-03, -9.80247394e-02]
+    - [-7.23893905e-04, -9.99961086e-01,  8.79218603e-03, -3.53710902e-04]
+    - [0.0, 0.0, 0.0, 1.0]
+  cam_overlaps: [0]
+  camera_model: pinhole
+  distortion_coeffs: [-0.033526, 0.000732, -0.000028, -0.001834]
+  distortion_model: radtan
+  intrinsics: [267.974614,268.492424,331.883269,191.786323] #fu, fv, cu, cv
+  resolution: [672, 376]
+  rostopic: /zed/zed_node/right_raw_gray/image_raw_gray
