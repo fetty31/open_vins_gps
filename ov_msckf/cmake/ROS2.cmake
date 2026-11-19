@@ -21,6 +21,20 @@ if (NOT ENABLE_ROS)
 endif ()
 add_definitions(-DROS_AVAILABLE=2)
 
+# Adoc workaround for cv_bridge compatibility from humble to new versions
+include(CheckIncludeFileCXX)
+
+set(CMAKE_REQUIRED_INCLUDES ${cv_bridge_INCLUDE_DIRS})
+
+check_include_file_cxx(
+    "cv_bridge/cv_bridge.hpp"
+    CV_BRIDGE_HPP_AVAILABLE
+)
+
+if(CV_BRIDGE_HPP_AVAILABLE)
+    add_definitions(-DUSE_CV_BRIDGE_HPP)
+endif()
+
 # Include our header files
 include_directories(
         src
