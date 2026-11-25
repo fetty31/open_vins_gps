@@ -27,6 +27,7 @@ include_directories(
         ${Boost_INCLUDE_DIRS}
         ${PYTHON_INCLUDE_DIRS}
         ${catkin_INCLUDE_DIRS}
+        ${OpenCV_INCLUDE_DIRS}
 )
 
 # Set link libraries used by all binaries
