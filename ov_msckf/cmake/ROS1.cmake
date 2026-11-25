@@ -39,6 +39,20 @@ list(APPEND thirdparty_libraries
         ${catkin_LIBRARIES}
 )
 
+# Adoc workaround for cv_bridge compatibility from humble to new versions
+include(CheckIncludeFileCXX)
+
+set(CMAKE_REQUIRED_INCLUDES ${cv_bridge_INCLUDE_DIRS})
+
+check_include_file_cxx(
+    "cv_bridge/cv_bridge.hpp"
+    CV_BRIDGE_HPP_AVAILABLE
+)
+
+if(CV_BRIDGE_HPP_AVAILABLE)
+    add_definitions(-DUSE_CV_BRIDGE_HPP)
+endif()
+
 # If we are not building with ROS then we need to manually link to its headers
 # This isn't that elegant of a way, but this at least allows for building without ROS
 # If we had a root cmake we could do this: https://stackoverflow.com/a/11217008/7718197
